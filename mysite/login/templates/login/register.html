@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'login/css/register.css' %}">
+    <title>Register</title>
+</head>
+<body>
+    <div class="shell">
+        <div class="box-left">
+            <h2>Register</h2>
+            <span>Just register, you can enjoy more services here!</span>
+        </div>
+        <div class="box-right">
+            <div class="form">
+                <form action="{% url 'login:register' %}" method="post">
+                {% csrf_token %}
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required oninvalid="setCustomValidity('请输入您的邮箱');" oninput="setCustomValidity('');" >
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required oninvalid="setCustomValidity('请输入您的账号');" oninput="setCustomValidity('');" >
+                <label for="password" id="password">Password</label>
+                <input type="password" id="password" name="password" required oninvalid="setCustomValidity('请输入您的密码');" oninput="setCustomValidity('');" >
+                <input type="submit" id="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
